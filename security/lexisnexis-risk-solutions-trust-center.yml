@@ -1,0 +1,27 @@
+generated: '2026-07-25'
+method: searched
+probe: true
+source: https://trust.lexisnexis.com/
+url: https://trust.lexisnexis.com/
+certifications:
+- SOC 2
+- ISO 27001
+- HIPAA
+- GDPR
+evidence:
+- source: https://trust.lexisnexis.com/
+  keywords:
+  - soc 2
+  - iso/iec 27001
+  - hipaa
+  - trust center
+  - gdpr
+alternate_hosts:
+- url: https://trust.lexisnexisrisk.com/
+  status: 403
+  note: Resolves and is Cloudflare-fronted; returns an interstitial challenge to a scripted client.
+notes: >-
+  Both trust hosts sit behind a Cloudflare bot-management interstitial; a re-fetch after the
+  successful probe returned HTTP 403 "Just a moment...". The certifications above are what the
+  probe read from the live page at fetch time on 2026-07-25. The trust centre is operated on the
+  parent LexisNexis / RELX brand domain, which is the registrable domain of risk.lexisnexis.com.

@@ -1,0 +1,41 @@
+generated: '2026-07-25'
+method: searched
+source: https://github.com/lexisnexis-risk-solutions/emailage-public-clients
+note: >-
+  The only test/live separation LexisNexis Risk Solutions publishes on the open web is the
+  Emailage sandbox host, hard-coded in the company's own client libraries. No sandbox, test
+  credentials, magic identifiers or fixture tooling are published for the six insurance API
+  products - those are provisioned per customer under contract.
+environments:
+- name: sandbox
+  product: LexisNexis Emailage
+  base_url: https://sandbox.emailage.com
+  selection: >-
+    SDK flag - Python sandbox=True, Ruby sandbox true, PHP $sandbox = TRUE, Go Endpoint override.
+  credentials: Separate sandbox Account SID + auth token, issued by LexisNexis Risk Solutions.
+- name: production
+  product: LexisNexis Emailage
+  base_url: https://api.emailage.com
+  selection: Default in every client library.
+key_separation:
+  style: separate-credentials-per-environment
+  prefix: null
+  note: >-
+    Emailage does not use a test-vs-live key prefix. The same credential shape (Account SID +
+    auth token) is issued twice, once per environment, and the environment is chosen by the
+    client's sandbox flag / endpoint. No prefix convention is published.
+test_values:
+  published: false
+  note: >-
+    No magic test emails, test IPs or fixture identifiers are published. The value
+    test@emailage.com appears in the Emailage_Ruby spec fixture as a recorded response body,
+    not as a documented sandbox input, and is NOT recorded here as a usable test value.
+time_simulation:
+  supported: false
+fixture_tooling:
+  published: false
+insurance_products:
+  sandbox: false
+  note: >-
+    No test environment is documented for C.L.U.E. Auto, C.L.U.E. Auto with Current Carrier,
+    Driver Discovery, InsurView, Motor Vehicle Record or VIN Services. Absence is the finding.

@@ -1,0 +1,88 @@
+generated: '2026-07-25'
+method: searched
+source: >-
+  Emailage first-party SDK source (github.com/lexisnexis-risk-solutions/emailage-public-clients)
+scope: >-
+  These conventions describe the ONLY LexisNexis Risk Solutions request/response semantics
+  readable on the open web - the Emailage fraud-scoring API, as implemented by the company's own
+  published client libraries. The six insurance API products publish no conventions to an
+  anonymous visitor.
+authentication:
+  style: OAuth 1.0a request signing (HMAC-SHA256/384/512) or OAuth 2.0 client credentials
+  detail: authentication/lexisnexis-risk-solutions-authentication.yml
+transport:
+  protocol: HTTPS
+  tls_minimum: TLSv1.2
+  note: >-
+    Emailage_Python pins tls_version=TlsVersions.TLSv1_2 by default and installs a custom
+    pool manager to enforce it.
+request:
+  methods:
+  - GET
+  - POST
+  encoding: application/x-www-form-urlencoded query parameters
+  format_parameter: format=json
+  note: >-
+    The client sends signed query pairs; the Go client posts with url.Values and appends
+    ?format=json. The HTTP method is selectable on the client (set_http_method in the Python
+    client), so the same operation can be issued as GET or POST.
+idempotency:
+  supported: false
+  header: null
+  note: >-
+    No idempotency key, request key or retry-safety contract is documented or implemented in any
+    of the first-party client libraries. Recorded as absent - no Idempotency pointer is emitted.
+pagination:
+  supported: false
+  note: >-
+    The scoring API returns a single query result set (query.responseCount / query.count) rather
+    than a paged collection; no cursor or offset parameters exist.
+error_envelope:
+  style: vendor
+  format: JSON
+  location: responseStatus
+  fields:
+  - name: status
+    description: Overall call status.
+  - name: errorCode
+    description: Vendor error code returned alongside a failed call.
+  - name: description
+    description: Human-readable description of the error.
+  note: >-
+    Modelled verbatim from Emailage_Java model/response/EmailageStatus.java. No RFC 9457
+    problem+json is used, and no enumerated error-code registry is published, so no
+    errors/ catalogue is emitted rather than inventing one.
+result_envelope:
+  root: query
+  fields:
+  - query.email
+  - query.queryType
+  - query.count
+  - query.created
+  - query.responseCount
+  - query.results[]
+  scoring_fields:
+  - EAScore
+  - EAReason
+  - EAReasonID
+  - EAAdvice
+  - EAAdviceID
+  - EARiskBand
+  - EARiskBandID
+  - EAStatusID
+  - fraudRisk
+  source: Emailage_Ruby/spec/fixtures/response.json (recorded first-party response fixture)
+request_tracing:
+  header: null
+  note: No request-id or correlation header is documented.
+versioning:
+  style: unknown
+  detail: lifecycle/lexisnexis-risk-solutions-lifecycle.yml
+rate_limiting:
+  documented: false
+  note: No rate-limit headers, quotas or throttling behaviour are published.
+cross_links:
+  authentication: authentication/lexisnexis-risk-solutions-authentication.yml
+  lifecycle: lifecycle/lexisnexis-risk-solutions-lifecycle.yml
+  sandbox: sandbox/lexisnexis-risk-solutions-sandbox.yml
+  packages: packages/lexisnexis-risk-solutions-packages.yml

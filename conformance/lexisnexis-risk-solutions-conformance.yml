@@ -1,0 +1,81 @@
+generated: '2026-07-25'
+method: searched
+source: >-
+  https://trust.lexisnexis.com/ ; https://risk.lexisnexis.com/about-us/alliance-partnerships/insurance/industry-organization ;
+  Emailage first-party SDK source
+note: >-
+  No OpenAPI exists in this repo, so nothing below is derived from a spec. Every assertion is
+  either read from a published LexisNexis page or from first-party client-library source.
+  Non-conformance recorded as false is a real negative finding, not an unchecked box.
+standards:
+- id: oauth1
+  conforms: true
+  evidence: >-
+    Emailage client libraries sign requests with OAuth 1.0a HMAC-SHA256/384/512
+    (Emailage_Go/auth/oauth1.go, Emailage_Java/utilities/OAuth.java).
+- id: oauth2
+  conforms: true
+  evidence: >-
+    Emailage_Go supports an OAUTH2 AuthType with a configurable TokenEndpoint;
+    Emailage_Java ships OAuth2Token / OAuth2Wrapper.
+- id: oidc
+  conforms: false
+  evidence: >-
+    /.well-known/openid-configuration returns 404 on developer.lexisnexisrisk.com and
+    risk.lexisnexis.com. Portal login federates to a SmartBear IdP, not a published OIDC surface.
+- id: rfc9116-security-txt
+  conforms: true
+  evidence: >-
+    PGP-signed RFC 9116 security.txt served at https://www.lexisnexis.com/.well-known/security.txt
+    on the registrable domain of risk.lexisnexis.com.
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: >-
+    Errors use a vendor responseStatus envelope (status / errorCode / description), not
+    application/problem+json.
+- id: rfc8594-sunset-header
+  conforms: false
+  evidence: No deprecation or sunset policy is published.
+- id: openapi
+  conforms: false
+  evidence: >-
+    The developer portal is a SwaggerHub Portal instance, which implies OpenAPI-described APIs
+    internally, but no definition is reachable anonymously. /openapi.json, /swagger.json and
+    /api-docs all 404; the SwaggerHub registry owner "lnrs" resolves with totalCount 0.
+- id: asyncapi
+  conforms: false
+  evidence: No event, streaming or webhook surface is documented.
+- id: acord
+  conforms: false
+  evidence: >-
+    ACORD is named as a Featured Industry Organization under the Insurance Alliance Program, but
+    no AL3, ACORD XML, NGDS, IVANS or TXLife transaction surface is documented anywhere on
+    risk.lexisnexis.com. Membership positioning, not a conformance claim.
+compliance_programme:
+  published: true
+  url: https://trust.lexisnexis.com/
+  certifications:
+  - SOC 2
+  - ISO 27001
+  - HIPAA
+  - GDPR
+  detail: security/lexisnexis-risk-solutions-trust-center.yml
+regulatory_regimes:
+  note: >-
+    The regimes the business operates under, from its own public positioning. These are legal
+    obligations governing the data, not API conformance claims.
+  regimes:
+  - id: fcra
+    name: Fair Credit Reporting Act
+    note: >-
+      C.L.U.E. Auto claim history and consumer-report products are FCRA-regulated consumer
+      reports, which is a direct reason the contract surface is gated rather than self-serve.
+  - id: dppa
+    name: Driver's Privacy Protection Act
+    note: Governs the Motor Vehicle Record product, sourced from state DMVs.
+  - id: glba
+    name: Gramm-Leach-Bliley Act
+    note: Governs permissible-purpose access to consumer financial data.
+  - id: gdpr
+    name: General Data Protection Regulation
+    note: Named on the LexisNexis trust centre; applies to the EMEA product lines.

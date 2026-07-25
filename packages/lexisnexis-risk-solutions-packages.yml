@@ -1,0 +1,92 @@
+generated: '2026-07-25'
+method: searched
+source: >-
+  npm, PyPI, RubyGems, NuGet, Maven Central, Packagist and pkg.go.dev registry searches plus the
+  first-party GitHub organisations github.com/lexisnexis-risk-solutions and github.com/emailage
+note: >-
+  No client library exists for the six gated insurance API products (C.L.U.E. Auto, C.L.U.E. Auto
+  with Current Carrier, Driver Discovery, InsurView, Motor Vehicle Record, VIN Services) - those
+  are contract-only and undocumented on the open web. The official SDKs LexisNexis Risk Solutions
+  does publish are for Emailage, the email/IP fraud-risk scoring product it acquired in 2020 and
+  now sells as LexisNexis Emailage. Those clients are maintained in the first-party GitHub
+  organisation github.com/lexisnexis-risk-solutions ("Software and Documentation for LexisNexis
+  Risk Solutions") in the monorepo emailage-public-clients, mirrored from the legacy
+  github.com/emailage organisation. LexisNexis.ServicesApi.Client on NuGet was deliberately
+  EXCLUDED - it targets advance.lexis.com, the LexisNexis legal-research business, not Risk
+  Solutions.
+source_repository: https://github.com/lexisnexis-risk-solutions/emailage-public-clients
+packages:
+- language: python
+  registry: pypi
+  name: emailage-official
+  version: 1.2.2
+  url: https://pypi.org/project/emailage-official/
+  install: pip install emailage-official
+  source: https://github.com/lexisnexis-risk-solutions/emailage-public-clients/tree/main/Emailage_Python
+  product: LexisNexis Emailage
+  official: true
+- language: ruby
+  registry: rubygems
+  name: emailage
+  version: 1.1.3
+  url: https://rubygems.org/gems/emailage
+  install: gem install emailage
+  source: https://github.com/lexisnexis-risk-solutions/emailage-public-clients/tree/main/Emailage_Ruby
+  product: LexisNexis Emailage
+  official: true
+  note: Authored by the "Emailage DEV Team"; 3.7M cumulative downloads.
+- language: csharp
+  registry: nuget
+  name: LexisNexisRiskSolutions_Emailage.NetCore.Wrapper
+  version: 2.0.9
+  url: https://www.nuget.org/packages/LexisNexisRiskSolutions_Emailage.NetCore.Wrapper
+  install: dotnet add package LexisNexisRiskSolutions_Emailage.NetCore.Wrapper
+  project_url: https://risk.lexisnexis.com/products/lexisnexis-emailage
+  product: LexisNexis Emailage
+  official: true
+  note: Author "LexisNexisRiskSolutions_Emailage"; projectUrl points at the first-party product page.
+- language: go
+  registry: github
+  name: github.com/lexisnexis-risk-solutions/emailage-public-clients/Emailage_Go
+  url: https://github.com/lexisnexis-risk-solutions/emailage-public-clients/tree/main/Emailage_Go
+  install: go get github.com/emailage/Emailage_Go
+  product: LexisNexis Emailage
+  official: true
+  note: Not published to a proxy-indexed module path of its own; consumed from the source repository.
+- language: java
+  registry: github
+  name: com.emailage.javawrapper
+  url: https://github.com/lexisnexis-risk-solutions/emailage-public-clients/tree/main/Emailage_Java
+  install: Build from source (Maven pom.xml in Emailage_Java); no Maven Central coordinate found.
+  product: LexisNexis Emailage
+  official: true
+- language: php
+  registry: github
+  name: Emailage_SDK_php
+  url: https://github.com/lexisnexis-risk-solutions/emailage-public-clients/tree/main/Emailage_SDK_php
+  install: Clone from source; not published to Packagist.
+  product: LexisNexis Emailage
+  official: true
+- language: javascript
+  registry: github
+  name: Emailage_Javascript
+  url: https://github.com/lexisnexis-risk-solutions/emailage-public-clients/tree/main/Emailage_Javascript
+  install: Clone from source; not published to npm.
+  product: LexisNexis Emailage
+  official: true
+excluded:
+- name: LexisNexis.ServicesApi.Client
+  registry: nuget
+  reason: LexisNexis legal-research (advance.lexis.com), a different RELX business unit.
+- name: lexisnexis-metabase
+  registry: npm
+  reason: Third-party client for the Metabase/Moreover news API, not first-party.
+registries_probed:
+  npm: no first-party LexisNexis Risk Solutions or Emailage package
+  pypi: emailage-official found; lexisnexis / lexisnexisrisk / threatmetrix all 404
+  rubygems: emailage found
+  nuget: LexisNexisRiskSolutions_Emailage.NetCore.Wrapper found
+  maven_central: com.lexisnexis:unique-id only (unrelated utility); no emailage coordinate
+  packagist: no first-party package
+  crates_io: none
+  pkg_go_dev: source-repository only

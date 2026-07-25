@@ -1,0 +1,77 @@
+generated: '2026-07-25'
+method: searched
+source: >-
+  Emailage first-party SDK source (github.com/lexisnexis-risk-solutions/emailage-public-clients)
+  plus anonymous probes of developer.lexisnexisrisk.com
+note: >-
+  There is no OpenAPI in this repo, so nothing here is derived from a spec. The insurance API
+  products have NO publicly documented authentication scheme; the only LexisNexis Risk Solutions
+  auth model readable on the open web is the one implemented in the company's own published
+  Emailage client libraries.
+summary:
+  types:
+  - oauth1
+  - oauth2
+  api_key_in: []
+  oauth2_flows:
+  - clientCredentials
+  gated: true
+schemes:
+- name: EmailageOAuth1
+  type: oauth1
+  product: LexisNexis Emailage
+  signature_methods:
+  - HMAC-SHA256
+  - HMAC-SHA384
+  - HMAC-SHA512
+  deprecated_signature_methods:
+  - HMAC-SHA1
+  credentials:
+  - Account SID (consumer key)
+  - Auth token (consumer secret)
+  hosts:
+    production: https://api.emailage.com
+    sandbox: https://sandbox.emailage.com
+  sources:
+  - https://github.com/lexisnexis-risk-solutions/emailage-public-clients/tree/main/Emailage_Python
+  - https://github.com/lexisnexis-risk-solutions/emailage-public-clients/tree/main/Emailage_Go
+  evidence: >-
+    Emailage_Python/emailage/client.py hard-codes ApiDomains.sandbox = https://sandbox.emailage.com
+    and ApiDomains.production = https://api.emailage.com; Emailage_Go/README.md states the package
+    no longer supports HMAC-SHA1 and recommends HMAC-SHA256/384/512.
+- name: EmailageOAuth2
+  type: oauth2
+  product: LexisNexis Emailage
+  flows:
+  - flow: clientCredentials
+    tokenUrl: null
+    note: >-
+      The Go client exposes a configurable TokenEndpoint (opts.TokenEndpoint) used when AuthType is
+      OAUTH2; the token URL itself is issued per customer under contract and is not published.
+  sources:
+  - https://github.com/lexisnexis-risk-solutions/emailage-public-clients/tree/main/Emailage_Go
+  - https://github.com/lexisnexis-risk-solutions/emailage-public-clients/tree/main/Emailage_Java
+  evidence: >-
+    Emailage_Go/emailage.go defines Endpoint + TokenEndpoint and an OAUTH2 AuthType;
+    Emailage_Java carries model/OAuth2Token.java and utilities/OAuth2Wrapper.java.
+insurance_products:
+  documented: false
+  scheme: null
+  note: >-
+    The six insurance API products on developer.lexisnexisrisk.com (clue_auto, clue_auto_cc,
+    driver_discovery, insurview, mvr, vin_services) expose no anonymous authentication
+    documentation. Every product route answers 302 to /sp-portal/session-expired, and the
+    react-router data route (/mvr.data, /clue_auto.data) returns the same SingleFetchRedirect.
+    Credentials are issued under commercial contract.
+portal_login:
+  url: https://developer.lexisnexisrisk.com/services/api/login?external=true
+  status: 302
+  mechanism: SwaggerHub Portal external identity-provider login (SmartBear IdP federation)
+  note: Portal session login for humans, not an API authentication scheme.
+discovery_probes:
+- url: https://developer.lexisnexisrisk.com/.well-known/openid-configuration
+  status: 404
+- url: https://developer.lexisnexisrisk.com/.well-known/oauth-authorization-server
+  status: 404
+- url: https://risk.lexisnexis.com/.well-known/openid-configuration
+  status: 404

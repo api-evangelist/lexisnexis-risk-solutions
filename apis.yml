@@ -35,6 +35,9 @@ tags:
 - Partner Gated
 created: '2026-07-25'
 modified: '2026-07-25'
+enrichment:
+  last_run: '2026-07-25'
+  round: 2026-07-25
 specificationVersion: '0.19'
 apis:
 - aid: lexisnexis-risk-solutions:clue-auto
@@ -151,7 +154,43 @@ apis:
   properties:
   - type: APIReference
     url: https://developer.lexisnexisrisk.com/vin_services
+- aid: lexisnexis-risk-solutions:emailage
+  name: LexisNexis Emailage
+  description: >-
+    LexisNexis Emailage is an email and IP address fraud-risk scoring API acquired by LexisNexis
+    Risk Solutions in 2020. It returns a real-time risk score and advice band for an email address
+    and/or IP address, used in transaction fraud screening. Unlike the six insurance products it
+    has first-party client libraries published to public registries (PyPI, RubyGems, NuGet) and
+    maintained in the company GitHub organisation, and those libraries hard-code the production
+    and sandbox host names. No OpenAPI definition is published; credentials (Account SID plus auth
+    token, signed with OAuth 1.0a HMAC-SHA256/384/512, or OAuth 2.0 client credentials) are issued
+    under commercial contract.
+  humanURL: https://risk.lexisnexis.com/products/lexisnexis-emailage
+  baseURL: https://api.emailage.com
+  tags:
+  - Fraud Detection
+  - Identity
+  - Risk Data
+  - Email Intelligence
+  - Data Analytics
+  properties:
+  - type: Documentation
+    url: https://risk.lexisnexis.com/products/lexisnexis-emailage
+  - type: SourceCode
+    url: https://github.com/lexisnexis-risk-solutions/emailage-public-clients
+  - type: SDKs
+    url: packages/lexisnexis-risk-solutions-packages.yml
+    name: First-party Emailage client libraries (Python, Ruby, Go, Java, PHP, JavaScript, .NET)
+  - type: Sandbox
+    url: sandbox/lexisnexis-risk-solutions-sandbox.yml
+    name: Emailage sandbox environment (https://sandbox.emailage.com)
+  - type: Authentication
+    url: authentication/lexisnexis-risk-solutions-authentication.yml
 common:
+- type: TrustCenter
+  url: security/lexisnexis-risk-solutions-trust-center.yml
+- type: DomainSecurity
+  url: security/lexisnexis-risk-solutions-domain-security.yml
 - type: Website
   url: https://risk.lexisnexis.com/
 - type: Documentation
@@ -171,7 +210,7 @@ common:
 - type: Support
   url: https://lnrs.my.site.com/CustomerSupportHub/s/
   name: Customer Support Hub
-- type: SignIn
+- type: Login
   url: https://risk.lexisnexis.com/insurance
   name: Product sign-in - Insurance Solutions portal
 - type: Blog
@@ -181,10 +220,58 @@ common:
   url: https://www.linkedin.com/company/lexisnexis-risk-solutions
 - type: Twitter
   url: https://twitter.com/LexisNexisRisk
-- type: Privacy
+- type: PrivacyPolicy
   url: https://risk.lexisnexis.com/corporate/privacy-policy
 - type: TermsOfService
   url: https://risk.lexisnexis.com/terms
+- type: LegalNotices
+  url: https://risk.lexisnexis.com/legal-notices
+- type: CookiePolicy
+  url: https://risk.lexisnexis.com/corporate/cookie-policy
+- type: DataPrivacy
+  url: https://risk.lexisnexis.com/corporate/data-privacy
+- type: DeveloperPortal
+  url: https://developer.lexisnexisrisk.com/
+  name: LexisNexis Developer Portal - SwaggerHub Portal instance (portal subdomain lnrs-baw)
+- type: GitHubOrganization
+  url: https://github.com/lexisnexis-risk-solutions
+  name: Software and Documentation for LexisNexis Risk Solutions
+- type: SourceCode
+  url: https://github.com/lexisnexis-risk-solutions/emailage-public-clients
+  name: Emailage public client libraries monorepo
+- type: StatusPage
+  url: https://status.lexisnexisrisk.com/
+  name: Business Services status (Atlassian Statuspage, public v2 API)
+- type: Lifecycle
+  url: lifecycle/lexisnexis-risk-solutions-lifecycle.yml
+- type: Security
+  url: https://www.lexisnexis.com/.well-known/security.txt
+  name: RFC 9116 security.txt - security@lexisnexis.com disclosure contact
+- type: VulnerabilityDisclosure
+  url: security/lexisnexis-risk-solutions-vulnerability-disclosure.yml
+- type: SecurityTxt
+  url: well-known/lexisnexis-risk-solutions-security.txt
+- type: WellKnown
+  url: well-known/lexisnexis-risk-solutions-well-known.yml
+- type: Compliance
+  url: https://trust.lexisnexis.com/
+  name: Trust centre - SOC 2, ISO 27001, HIPAA, GDPR
+- type: Conformance
+  url: conformance/lexisnexis-risk-solutions-conformance.yml
+- type: Packages
+  url: packages/lexisnexis-risk-solutions-packages.yml
+- type: SDKs
+  url: packages/lexisnexis-risk-solutions-packages.yml
+  name: First-party Emailage client libraries (Python, Ruby, .NET, Go, Java, PHP, JavaScript)
+- type: Authentication
+  url: authentication/lexisnexis-risk-solutions-authentication.yml
+- type: Conventions
+  url: conventions/lexisnexis-risk-solutions-conventions.yml
+- type: Sandbox
+  url: sandbox/lexisnexis-risk-solutions-sandbox.yml
+  name: Emailage sandbox environment
+- type: LLMsTxt
+  url: llms/lexisnexis-risk-solutions-llms.txt
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

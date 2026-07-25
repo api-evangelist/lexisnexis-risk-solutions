@@ -1,0 +1,54 @@
+generated: '2026-07-25'
+method: searched
+source: live probes of the LexisNexis Risk Solutions web + developer-portal hosts
+note: >-
+  LexisNexis Risk Solutions publishes no /.well-known/ discovery surface on its own hosts.
+  The only document found is the RFC 9116 security.txt served on the parent registrable
+  domain lexisnexis.com, which is the registrable domain of risk.lexisnexis.com and therefore
+  covers the Risk Solutions web property. Every /.well-known/ path probed on
+  developer.lexisnexisrisk.com returned 404 and every path on risk.lexisnexis.com returned
+  403 or 404. No OIDC or OAuth authorization-server metadata is published anonymously; the
+  developer portal is a SwaggerHub Portal instance whose product routes redirect an
+  unauthenticated client to /sp-portal/session-expired.
+hosts:
+- host: https://www.lexisnexis.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    file: lexisnexis-risk-solutions-security.txt
+    format: RFC 9116
+    pgp_signed: true
+- host: https://developer.lexisnexisrisk.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /robots.txt
+    status: 200
+    note: 'User-agent: * / Disallow: /search'
+  - path: /llms.txt
+    status: 404
+- host: https://risk.lexisnexis.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /security.txt
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 403
+  - path: /.well-known/ai-plugin.json
+    status: 403
+  - path: /llms.txt
+    status: 404
+- host: https://www.relx.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    note: RELX parent-group site; no security.txt.

@@ -1,0 +1,85 @@
+generated: '2026-07-25'
+method: searched
+source: https://status.lexisnexisrisk.com/
+status_page: https://status.lexisnexisrisk.com/
+status_page_platform: Atlassian Statuspage
+status_page_title: Business Services
+status_page_id: v6z1p4pf4qzk
+status_page_api:
+  summary: https://status.lexisnexisrisk.com/api/v2/summary.json
+  components: https://status.lexisnexisrisk.com/api/v2/components.json
+  status: https://status.lexisnexisrisk.com/api/v2/status.json
+  incidents: https://status.lexisnexisrisk.com/api/v2/incidents.json
+  note: >-
+    Public, anonymous, machine-readable Statuspage v2 API. This is the only machine-readable
+    LexisNexis Risk Solutions surface reachable without a contract.
+status_components:
+  note: >-
+    Component names as published on the status page on 2026-07-25. Components suffixed "API" are
+    the named, monitored API surfaces the company operates; none of them corresponds to the six
+    gated insurance products on developer.lexisnexisrisk.com, which are not represented on the
+    status page at all.
+  named_api_components:
+  - ThreatMetrix Global API
+  - ThreatMetrix U.S. API
+  - ThreatMetrix EMEA API
+  - LexisNexis Accurint XML (wsonline)
+  other_components:
+  - Due Diligence
+  - ID Analytics (IDA)
+  - LexisNexis Bridger Insight EU 5
+  - LexisNexis Bridger Insight EU
+  - LexisNexis Bridger Insight U.S. 5
+  - Lexis Advance
+  - ThreatMetrix Global Portal
+  - ThreatMetrix U.S. Portal
+  - ThreatMetrix EMEA Portal
+  - LexisNexis Accurint Web
+  - New Nexis
+  - ThreatMetrix Global Profiling
+  - ThreatMetrix Global SFTP
+  - ThreatMetrix EMEA SFTP
+  - LexisNexis AML Insight and LexisNexis Risk Management Solutions
+  - LexisNexis AmplifyID Identity Risk Navigator
+  - LexisNexis AmplifyID Master Person Index
+  - LexisNexis AmplifyID Program Participation Analyzer
+  - LexisNexis Asset Verification Solution
+  - LexisNexis Batch Transfer
+  - LexisNexis Batch Web Gateway
+  - LexisNexis Business Assurance
+  - LexisNexis Government Identity Portal
+  - LexisNexis Mortgage Industry Data Exchange (MIDEX)
+  - LexisNexis Public Records Application (PRA)
+  - LexisNexis Risk Defense Platform (RDP)
+  - LexisNexis Risk Defense Platform (RDP) 2
+  - LexisNexis Risk Defense Platform (RDP) Staging
+  - LexisNexis RiskView
+  - LexisNexis TrueID Web Portal
+  - LexisNexis WorldCompliance
+  - ThreatMetrix Global
+  - ThreatMetrix U.S.
+  - ThreatMetrix EMEA
+versioning:
+  scheme: unknown
+  current: null
+  docs: null
+  note: >-
+    No public versioning policy. The insurance API products are versioned inside the SwaggerHub
+    Portal behind login; the anonymous landing page exposes product slugs only, no version tags.
+deprecation:
+  policy_url: null
+  sunset_header: null
+  note: >-
+    No deprecation or sunset policy is published on the open web. risk.lexisnexis.com has no
+    developer or API section; developer.lexisnexisrisk.com surfaces no changelog, release notes
+    or deprecation page to an anonymous visitor.
+sla:
+  url: null
+  uptime_target: null
+  note: >-
+    No public SLA. Uptime commitments are contractual. The status page publishes live component
+    state and incident history but no uptime target.
+support:
+  url: https://lnrs.my.site.com/CustomerSupportHub/s/
+  name: LexisNexis Risk Solutions Customer Support Hub (Salesforce Experience Cloud)
+deprecated_operations: []

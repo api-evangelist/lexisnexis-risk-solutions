@@ -1,0 +1,26 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
+Contact: mailto:security@lexisnexis.com
+Expires: 2027-04-10T16:30:00.000Z
+Encryption: https://lexisnexis.com/gpg_disclosure_public.txt
+Preferred-Languages: en
+Canonical:https://lexisnexis.com/.well-known/security.txt
+Hiring: https://www.lexisnexis.com/en-us/about-us/careers.page
+-----BEGIN PGP SIGNATURE-----
+
+iQJPBAEBCAA5FiEEWtSgGVjzvfy4FDyefrR87LIoLuEFAmnT9wgbFIAAAAAABAAO
+bWFudTIsMi41KzEuMTIsMCwzAAoJEH60fOyyKC7hILQP/RZJ9pxwaU6lV/zdyix0
+pE5Tv1U/epJFZvb7AkgGe7IBf6W4+u4jnNlb/ehijgpAig07OvS/neoJTHLmbbn8
+BwVDbnv2/Aq5tNj0ScWI7y+QdCkx0KwQgktsO3PeBmHv8qR5kntu53BqOeLlNm9y
+xfh7NQQbduArT0mwhDLbjQ9J76wR5tX+qdCkSJlb+TtJVhjFS4hN0ssUpDWvdh4b
+wRrr5YEcQQ9lAjTnKgSVrmHVFTrdP6cXlBcDr/WGF+3TXlFNSmr6pHFFl7dmt/JL
+9E9bCnCHAlLSaz05PUSsxk7Au3sNgNqJYRnveXwsTP89ssEKHxCPx+wqU8VxY24U
+mnBFvFhTKZtuHO0Ygd/o7GllOtHNZ6ep8N2AJK1DLcSBu6clrNRlrfbRoViGoJ+f
+86/2pUJVzjtVO011H0Px6SMcpyt923XPtPJFHWUyW6hpFju43H7lT9XffIltG8ut
+UmcONYHGjqms5pH1vpz/oXyncIMuQTx2upxGfxmYqk51HpvhwfNx47P2V+YMkvWX
+Q5E/+feqqVDKuZ4MrFRMOiI0m/yI3D9M3i/4y5+QM8BeLVZcjz86kz+8Vfg1yT+y
+e4XLLKmseEr+lQMZ+Wtr/uxh2KVqQOTxqzIE0wMEyxOMSgyxuFLLMDgwvKnqpQY1
+vGfcfv1bSyXokboOklCE19Sb
+=BFof
+-----END PGP SIGNATURE-----
