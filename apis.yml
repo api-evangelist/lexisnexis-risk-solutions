@@ -1,0 +1,190 @@
+aid: lexisnexis-risk-solutions
+url: https://raw.githubusercontent.com/api-evangelist/lexisnexis-risk-solutions/refs/heads/main/apis.yml
+name: LexisNexis Risk Solutions
+kind: company
+description: >-
+  LexisNexis Risk Solutions is the risk-data and analytics arm of RELX, headquartered in Alpharetta,
+  Georgia, and one of the small number of intermediaries that sit between United States property and
+  casualty carriers and the distribution channel. In insurance it does not underwrite risk; it sells
+  the contributory databases and scores that carriers rate against — C.L.U.E. Auto claims history,
+  Current Carrier prior-coverage verification, Motor Vehicle Records across all fifty states, Driver
+  Discovery undisclosed-driver detection, InsurView public-records attributes and VIN Services vehicle
+  data — alongside telematics exchange, data prefill, fraud detection, claims and life-insurance
+  underwriting products. Because the United States has no federal insurance regulator and no
+  open-insurance mandate, value in this market accrued to exactly this layer rather than to the
+  carriers, and LexisNexis Risk reaches its customers through carrier policy-administration and rating
+  systems (a Guidewire PolicyCenter marketplace listing for Motor Vehicle Records is the visible
+  example) rather than through an open API. Its API posture reflects that: a real first-party developer
+  portal exists at developer.lexisnexisrisk.com, built on SwaggerHub Portal, and it publicly enumerates
+  six insurance API products with descriptions — but every product page redirects an anonymous visitor
+  to a session-expired login screen. No OpenAPI or Swagger definition, no base URL, no scopes, no
+  webhook catalog and no Postman collection are published to the open web. Access is contract-first
+  and partner-gated; the six entries below are recorded as named, first-party-documented API products
+  whose reference documentation is behind authentication.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- Insurance
+- United States
+- Risk Data
+- Property and Casualty
+- Underwriting
+- Claims
+- Life Insurance
+- Auto Insurance
+- Data Analytics
+- Partner Gated
+created: '2026-07-25'
+modified: '2026-07-25'
+specificationVersion: '0.19'
+apis:
+- aid: lexisnexis-risk-solutions:clue-auto
+  name: C.L.U.E. Auto
+  description: >-
+    C.L.U.E. Auto is a contributory claim-history information exchange containing up to seven years of
+    personal automobile claims matching the search criteria, used by carriers during quoting and
+    underwriting. Listed as an API product on the LexisNexis Risk Solutions developer portal
+    (portal product key clue_auto); the reference documentation redirects anonymous visitors to a
+    login screen, and no OpenAPI definition or base URL is published publicly.
+  humanURL: https://developer.lexisnexisrisk.com/clue_auto
+  tags:
+  - Insurance
+  - Auto Insurance
+  - Claims
+  - Underwriting
+  - Risk Data
+  properties:
+  - type: Documentation
+    url: https://risk.lexisnexis.com/products/clue-auto
+  - type: APIReference
+    url: https://developer.lexisnexisrisk.com/clue_auto
+- aid: lexisnexis-risk-solutions:clue-auto-with-current-carrier
+  name: C.L.U.E. Auto with Current Carrier
+  description: >-
+    C.L.U.E. Auto combined with Current Carrier, which identifies the carriers of existing or previous
+    insurance policies so an underwriter can validate coverage and underwriting information and assess
+    auto and property risk. Listed as an API product on the LexisNexis Risk Solutions developer portal
+    (portal product key clue_auto_cc); reference documentation is behind authentication and no OpenAPI
+    definition is published publicly.
+  humanURL: https://developer.lexisnexisrisk.com/clue_auto_cc
+  tags:
+  - Insurance
+  - Auto Insurance
+  - Claims
+  - Underwriting
+  - Risk Data
+  properties:
+  - type: Documentation
+    url: https://risk.lexisnexis.com/products/current-carrier
+  - type: APIReference
+    url: https://developer.lexisnexisrisk.com/clue_auto_cc
+- aid: lexisnexis-risk-solutions:driver-discovery
+  name: Driver Discovery
+  description: >-
+    Driver Discovery identifies potentially undisclosed drivers residing at an applicant's address,
+    helping auto insurance carriers detect additional household drivers that were not declared on the
+    application. Listed as an API product on the LexisNexis Risk Solutions developer portal (portal
+    product key driver_discovery); reference documentation is behind authentication and no OpenAPI
+    definition is published publicly.
+  humanURL: https://developer.lexisnexisrisk.com/driver_discovery
+  tags:
+  - Insurance
+  - Auto Insurance
+  - Underwriting
+  - Risk Data
+  properties:
+  - type: Documentation
+    url: https://risk.lexisnexis.com/products/driver-discovery
+  - type: APIReference
+    url: https://developer.lexisnexisrisk.com/driver_discovery
+- aid: lexisnexis-risk-solutions:insurview
+  name: InsurView
+  description: >-
+    InsurView leverages one of the industry's largest collections of public records and other data
+    sources to provide a view of the consumer that complements traditional insurance scoring. Listed
+    as an API product on the LexisNexis Risk Solutions developer portal (portal product key insurview);
+    reference documentation is behind authentication and no OpenAPI definition is published publicly.
+  humanURL: https://developer.lexisnexisrisk.com/insurview
+  tags:
+  - Insurance
+  - Underwriting
+  - Risk Data
+  - Data Analytics
+  properties:
+  - type: Documentation
+    url: https://risk.lexisnexis.com/products/insurview
+  - type: APIReference
+    url: https://developer.lexisnexisrisk.com/insurview
+- aid: lexisnexis-risk-solutions:motor-vehicle-record
+  name: Motor Vehicle Record (MVR)
+  description: >-
+    Motor Vehicle Record data allows insurance companies to evaluate driver histories consistently in
+    all fifty states, sourced from state departments of motor vehicles. Listed as an API product on the
+    LexisNexis Risk Solutions developer portal (portal product key mvr) and distributed into carrier
+    policy administration through a Guidewire PolicyCenter marketplace listing; reference documentation
+    is behind authentication and no OpenAPI definition is published publicly.
+  humanURL: https://developer.lexisnexisrisk.com/mvr
+  tags:
+  - Insurance
+  - Auto Insurance
+  - Underwriting
+  - Risk Data
+  - Motor Vehicle Records
+  properties:
+  - type: Documentation
+    url: https://risk.lexisnexis.com/products/motor-vehicle-records
+  - type: APIReference
+    url: https://developer.lexisnexisrisk.com/mvr
+- aid: lexisnexis-risk-solutions:vin-services
+  name: VIN Services
+  description: >-
+    VIN Services provides vehicle registration and title data keyed on the vehicle identification
+    number, used in auto quoting, underwriting and prefill. Listed as an API product on the LexisNexis
+    Risk Solutions developer portal (portal product key vin_services); reference documentation is
+    behind authentication, no marketing product page was found on risk.lexisnexis.com, and no OpenAPI
+    definition is published publicly.
+  humanURL: https://developer.lexisnexisrisk.com/vin_services
+  tags:
+  - Insurance
+  - Auto Insurance
+  - Vehicle Data
+  - Risk Data
+  properties:
+  - type: APIReference
+    url: https://developer.lexisnexisrisk.com/vin_services
+common:
+- type: Website
+  url: https://risk.lexisnexis.com/
+- type: Documentation
+  url: https://developer.lexisnexisrisk.com/
+  name: LexisNexis Risk Solutions Developer Portal (SwaggerHub Portal, login required for docs)
+- type: Insurance
+  url: https://risk.lexisnexis.com/insurance
+  name: Insurance industry solutions
+- type: Products
+  url: https://risk.lexisnexis.com/products
+- type: Partners
+  url: https://risk.lexisnexis.com/about-us/alliance-partnerships/insurance
+  name: Insurance Alliance Program
+- type: Standards
+  url: https://risk.lexisnexis.com/about-us/alliance-partnerships/insurance/industry-organization
+  name: Industry Organization Alliances - ACORD, InsurTech Express, LOMA
+- type: Support
+  url: https://lnrs.my.site.com/CustomerSupportHub/s/
+  name: Customer Support Hub
+- type: SignIn
+  url: https://risk.lexisnexis.com/insurance
+  name: Product sign-in - Insurance Solutions portal
+- type: Blog
+  url: https://risk.lexisnexis.com/insights-resources
+  name: Insights and Resources
+- type: LinkedIn
+  url: https://www.linkedin.com/company/lexisnexis-risk-solutions
+- type: Twitter
+  url: https://twitter.com/LexisNexisRisk
+- type: Privacy
+  url: https://risk.lexisnexis.com/corporate/privacy-policy
+- type: TermsOfService
+  url: https://risk.lexisnexis.com/terms
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

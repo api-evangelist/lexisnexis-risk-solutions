@@ -1,0 +1,261 @@
+aid: lexisnexis-risk-solutions
+name: LexisNexis Risk Solutions
+review:
+  question: Does LexisNexis Risk Solutions expose a public, self-serve API surface for its United States insurance products?
+  answer: false
+  date: '2026-07-25'
+  reviewer: API Evangelist
+  homeMarket: United States
+  sector: Insurance
+  tier: risk-data-analytics
+findings:
+  summary: |
+    LexisNexis Risk Solutions runs a real first-party developer portal at
+    https://developer.lexisnexisrisk.com/ (HTTP 200, a SwaggerHub Portal
+    instance). The landing page is anonymously readable and publicly
+    enumerates six insurance API products with one-line descriptions:
+    C.L.U.E. Auto, C.L.U.E. Auto with Current Carrier, Driver Discovery,
+    InsurView, Motor Vehicle Record (MVR) and VIN Services. That landing
+    page is the entire public surface. Every product route
+    (/clue_auto, /clue_auto_cc, /driver_discovery, /insurview, /mvr,
+    /vin_services) answers HTTP 302 to
+    https://developer.lexisnexisrisk.com/sp-portal/session-expired for an
+    anonymous client, so all reference documentation, schemas and endpoint
+    detail are behind a login. The portal is therefore classified as a
+    partner/customer login wall with a public product catalogue, not a
+    self-serve developer portal, and the provider is recorded as gated.
+
+    No OpenAPI or Swagger definition was harvested. /openapi.json,
+    /swagger.json, /api-docs and /sitemap.xml all return 404 on the portal;
+    the SwaggerHub public registry owner "lnrs" resolves but publishes zero
+    APIs (totalCount 0), and no other SwaggerHub owner spelling for the
+    company resolved. This is consistent with the United States insurance
+    market seam: with no federal insurance regulator and no open-insurance
+    mandate, nothing forces disclosure, and a contributory-data business
+    with FCRA-regulated content has an affirmative reason not to publish.
+
+    Distribution is through carrier systems rather than through an open API.
+    A Guidewire Marketplace listing for "LexisNexis Risk Solutions Motor
+    Vehicle Records for PolicyCenter" (HTTP 200) is the visible integration
+    seam into policy administration.
+  developerPortal:
+    url: https://developer.lexisnexisrisk.com/
+    httpStatus: 200
+    fetched: '2026-07-25'
+    platform: SwaggerHub Portal
+    classification: partner login wall with a publicly enumerable product catalogue
+    selfServeSignup: false
+    publicReferenceDocs: false
+    note: |
+      Landing page renders server-side and lists six insurance API products.
+      Product tiles carry no anchor href; the only links on the page are "/" and
+      /services/api/login?external=true. Direct product routes 302 to
+      /sp-portal/session-expired when unauthenticated.
+  portalProbes:
+  - url: https://developer.lexisnexisrisk.com/
+    status: 200
+    note: Public landing page, six product tiles rendered server-side.
+  - url: https://developer.lexisnexisrisk.com/clue_auto
+    status: 302
+    redirect: https://developer.lexisnexisrisk.com/sp-portal/session-expired
+  - url: https://developer.lexisnexisrisk.com/clue_auto_cc
+    status: 302
+    redirect: https://developer.lexisnexisrisk.com/sp-portal/session-expired
+  - url: https://developer.lexisnexisrisk.com/driver_discovery
+    status: 302
+    redirect: https://developer.lexisnexisrisk.com/sp-portal/session-expired
+  - url: https://developer.lexisnexisrisk.com/insurview
+    status: 302
+    redirect: https://developer.lexisnexisrisk.com/sp-portal/session-expired
+  - url: https://developer.lexisnexisrisk.com/mvr
+    status: 302
+    redirect: https://developer.lexisnexisrisk.com/sp-portal/session-expired
+  - url: https://developer.lexisnexisrisk.com/vin_services
+    status: 302
+    redirect: https://developer.lexisnexisrisk.com/sp-portal/session-expired
+  - url: https://dev-portal.lexisnexisrisk.com/
+    status: 200
+    note: 493-byte single-page-application shell titled "LexisNexis Portal"; every path including /login and /home returns the same shell. Customer product portal, not developer documentation.
+  - url: https://docs.lexisnexisrisk.com/
+    status: 500
+    note: Zoomin documentation host; returns HTTP 500 on the root and on /bundle as of the review date.
+  - url: https://risk.lexisnexis.com/
+    status: 200
+  - url: https://risk.lexisnexis.com/developers
+    status: 404
+  - url: https://risk.lexisnexis.com/developer
+    status: 404
+  - url: https://risk.lexisnexis.com/api
+    status: 404
+  - url: https://risk.lexisnexis.com/partners
+    status: 404
+  - url: https://risk.lexisnexis.com/integrations
+    status: 404
+  - url: https://developer.risk.lexisnexis.com/
+    status: 0
+    note: Does not resolve in DNS.
+  - url: https://api.lexisnexisrisk.com/
+    status: 0
+    note: Does not resolve in DNS.
+  openapi:
+    harvested: false
+    specsSaved: 0
+    directoryCreated: false
+    hunted:
+    - url: https://developer.lexisnexisrisk.com/openapi.json
+      status: 404
+    - url: https://developer.lexisnexisrisk.com/swagger.json
+      status: 404
+    - url: https://developer.lexisnexisrisk.com/api-docs
+      status: 404
+    - url: https://developer.lexisnexisrisk.com/sitemap.xml
+      status: 404
+    - url: https://developer.lexisnexisrisk.com/clue_auto/openapi.json
+      status: 404
+    - url: https://api.swaggerhub.com/apis/lnrs
+      status: 200
+      note: SwaggerHub registry owner resolves but publishes no APIs (totalCount 0).
+    - url: https://api.swaggerhub.com/apis/lexisnexisrisk
+      status: 404
+    conclusion: No public OpenAPI, Swagger, AsyncAPI or .proto artifact was found. Nothing was saved, so no openapi/ directory exists in this repo.
+  acordPosture:
+    phrase: ACORD named as an industry-organization alliance partner only; no AL3, ACORD XML, NGDS or IVANS transaction documented publicly
+    evidence:
+    - url: https://risk.lexisnexis.com/about-us/alliance-partnerships/insurance/industry-organization
+      status: 200
+      quote: >-
+        ACORD (Association for Cooperative Operations Research and Development) is a global, nonprofit
+        organization serving the insurance and related industries. ACORD facilitates fast, accurate data
+        exchange and more efficient workflows through the development of electronic standards, standardized
+        forms, and tools to support their use.
+      note: ACORD is listed as a Featured Industry Organization under the Insurance Alliance Program, alongside InsurTech Express and LOMA.
+    searchedTerms:
+    - ACORD
+    - AL3
+    - ACORD XML
+    - ACORD certified
+    - NGDS
+    - IVANS
+    - agency download
+    - Applied Epic
+    - Vertafore
+    - AMS360
+    - TXLife
+    negativeFinding: |
+      None of AL3, ACORD XML, ACORD certified, NGDS, IVANS, agency download, Applied Epic,
+      Vertafore or AMS360 appear on risk.lexisnexis.com/insurance or on the C.L.U.E. Auto,
+      Current Carrier, Motor Vehicle Records, InsurView, Driver Discovery or Telematics
+      product pages. The company's public ACORD relationship is membership/alliance
+      positioning, not a documented ACORD transaction surface.
+  insuranceVerbs:
+    quote: false
+    bind: false
+    issue: false
+    fnol: false
+    note: |
+      LexisNexis Risk Solutions is not a carrier and exposes none of the four insurance
+      transaction verbs. Its products are risk-data lookups consumed INSIDE the carrier's
+      quoting, underwriting and claims workflow (C.L.U.E. claim history, prior-carrier
+      verification, MVR, undisclosed-driver detection, public-records attributes, VIN data).
+      The audience is carrier and MGA back-office systems, not consumers and not agents
+      directly; access is partner-only under contract.
+  authModel:
+    scheme: Portal session login (SwaggerHub Portal external login at /services/api/login?external=true)
+    publicApiAuthDocumented: false
+    oidcDiscovery:
+    - url: https://developer.lexisnexisrisk.com/.well-known/openid-configuration
+      status: 404
+    - url: https://developer.lexisnexisrisk.com/.well-known/oauth-authorization-server
+      status: 404
+    - url: https://risk.lexisnexis.com/.well-known/openid-configuration
+      status: 404
+    - url: https://dev-portal.lexisnexisrisk.com/.well-known/openid-configuration
+      status: 200
+      note: Returns the single-page-application HTML shell, not JSON metadata. Not a valid OIDC discovery document.
+    note: No public API authentication scheme (API key, OAuth2 client-credentials, mTLS) is documented on the open web. Credentials are issued under commercial contract.
+  webhooks:
+    documented: false
+    asyncapi: false
+    note: No event catalogue, webhook reference or AsyncAPI document was found. Absence is the finding.
+  postman:
+    publicWorkspace: false
+    note: No public Postman workspace or collection was found for LexisNexis Risk Solutions.
+  graphql:
+    documented: false
+  grpc:
+    documented: false
+  transports:
+  - protocol: HTTPS
+    documented: partial
+    note: Product APIs are reachable only under contract; no base URL is published on the open web.
+  - protocol: REST
+    documented: false
+    note: The developer portal is built on SwaggerHub Portal, which implies OpenAPI-described HTTP APIs internally, but no definition or base URL is public.
+  - protocol: GraphQL
+    documented: false
+  - protocol: gRPC
+    documented: false
+  - protocol: WebSocket
+    documented: false
+  distributionSeam:
+  - url: https://marketplace.guidewire.com/product/lexisnexis-risk-solutions-motor-vehicle-recordsfor-policycenter/01t3n00000TGZ6NAAX
+    status: 200
+    note: LexisNexis Risk Solutions Motor Vehicle Records for Guidewire PolicyCenter - integration reaches carriers through the policy administration system rather than through an open API.
+  - url: https://clrp.insurancesolutions.lexisnexisrisk.com/
+    status: 200
+    note: Claims and Police Reports Portal help content; an application help site, not an API reference.
+sources:
+- url: https://developer.lexisnexisrisk.com/
+  type: DeveloperPortal
+  status: 200
+  fetched: '2026-07-25'
+  note: Public landing page listing the six insurance API products; all deeper routes require login.
+- url: https://risk.lexisnexis.com/insurance
+  type: Documentation
+  status: 200
+  fetched: '2026-07-25'
+  note: Insurance industry hub - markets served (auto, commercial, life, home, automakers) and capabilities (acquisition and retention, fraud detection, claims, identity access management, compliance, quoting and underwriting, data analytics and modeling, telematics, data prefill).
+- url: https://risk.lexisnexis.com/products
+  type: Documentation
+  status: 200
+  fetched: '2026-07-25'
+- url: https://risk.lexisnexis.com/about-us/alliance-partnerships/insurance/industry-organization
+  type: Standards
+  status: 200
+  fetched: '2026-07-25'
+  note: Sole first-party ACORD reference found.
+- url: https://risk.lexisnexis.com/products/clue-auto
+  type: Documentation
+  status: 200
+  fetched: '2026-07-25'
+- url: https://risk.lexisnexis.com/products/current-carrier
+  type: Documentation
+  status: 200
+  fetched: '2026-07-25'
+- url: https://risk.lexisnexis.com/products/motor-vehicle-records
+  type: Documentation
+  status: 200
+  fetched: '2026-07-25'
+- url: https://risk.lexisnexis.com/products/insurview
+  type: Documentation
+  status: 200
+  fetched: '2026-07-25'
+- url: https://risk.lexisnexis.com/products/driver-discovery
+  type: Documentation
+  status: 200
+  fetched: '2026-07-25'
+actions:
+  apisYmlCreated: true
+  apisListed: 6
+  openapiDirectory: false
+  gated: true
+  status: built-stub
+  reason: |
+    A real first-party developer portal exists and publicly names six insurance API
+    products, so those are recorded as apis[] entries with their real documentation and
+    reference URLs. But no reference documentation, base URL, authentication scheme or
+    machine-readable definition is available to an anonymous visitor, so this provider is
+    a partner-gated stub rather than a captured public API surface. In the United States
+    insurance market - no federal regulator, no open-insurance mandate, ACORD/EDI rather
+    than APIs as the historical exchange idiom - this is the expected posture for the
+    risk-data layer, and recording it accurately is the point.
