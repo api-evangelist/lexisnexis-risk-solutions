@@ -187,6 +187,11 @@ apis:
   - type: Authentication
     url: authentication/lexisnexis-risk-solutions-authentication.yml
 common:
+- type: SecurityPolicy
+  url: https://github.com/lexisnexis-risk-solutions/emailage-public-clients/blob/main/SECURITY.md
+- type: License
+  name: MIT
+  url: https://github.com/lexisnexis-risk-solutions/emailage-public-clients/blob/main/LICENSE
 - type: TrustCenter
   url: security/lexisnexis-risk-solutions-trust-center.yml
 - type: DomainSecurity
