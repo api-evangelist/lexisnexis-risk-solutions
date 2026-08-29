@@ -21,6 +21,19 @@ description: >-
   webhook catalog and no Postman collection are published to the open web. Access is contract-first
   and partner-gated; the six entries below are recorded as named, first-party-documented API products
   whose reference documentation is behind authentication.
+deliveryModel:
+  model: open-core
+  license: MIT
+  open_source: true
+  commercial: true
+  callable_host: false
+  label: Open core · an OSS project plus a commercial hosted product
+  confidence: high
+  source:
+  - license
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
 - Insurance
