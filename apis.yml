@@ -49,6 +49,9 @@ accessModel:
   generated: '2026-09-02'
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+x-docs-platform: stoplight
+x-docs-platform-confidence: medium
+x-docs-platform-checked: 2026-10-03
 tags:
 - Insurance
 - United States
@@ -195,6 +198,12 @@ apis:
   humanURL: https://risk.lexisnexis.com/products/lexisnexis-emailage
   baseURL: https://api.emailage.com
   tags:
+  - Fraud Prevention
+  - Identity
+  - Risk Data
+  - Email Intelligence
+  - Data Analytics
+  tags_raw:
   - Fraud Detection
   - Identity
   - Risk Data
