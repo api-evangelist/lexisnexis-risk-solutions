@@ -8,6 +8,7 @@ checked:
 - https://www.access-dvs-register.service.gov.uk/register/download-register
 - microsoft-teams/integrations/microsoft-teams-integration-edges.yml
 - https://listings.pcisecuritystandards.org/assessors_and_solutions
+- https://aws.amazon.com/marketplace/search/results?FULFILLMENT_OPTION_TYPE=DATA_EXCHANGE
 source:
 - duck-creek/integrations/duck-creek-integration-edges.yml
 edges:
@@ -198,3 +199,32 @@ edges:
     detected: '2026-10-20'
   detected_by: sweep-compliance-assurance.py
   first_seen: '2026-10-20'
+- partner_name: AWS Data Exchange
+  partner: amazon-data-exchange
+  partner_match: aggregator
+  type: marketplace
+  marketplace: amazon-data-exchange-marketplace
+  channel: distribution
+  relationship: distribution-channel
+  direction: third-party
+  evidence: https://aws.amazon.com/marketplace/seller-profile?id=ec9242c2-8e10-4706-851e-9c49097f9b6a
+  category: data product listing
+  contract_reference:
+    register: AWS Data Exchange (AWS Marketplace discovery search, FULFILLMENT_OPTION_TYPE=DATA_EXCHANGE + seller-profile
+      sellerWebsiteUrl)
+    spec_file: null
+    role: data-marketplace-seller
+    registered_name: LexisNexis Risk Solutions
+    matched_domain: lexisnexis.com
+    matched_by: domain+name-among-holders
+    listings: 2
+    sample_listings:
+    - LexisNexis® Provider Data Management
+    - LexisNexis® Risk Solutions Healthcare Market Data & Insights
+    signal_note: 'participation: the provider lists data products on this marketplace; counts are context'
+    detected_by: sweep-data-marketplaces.py
+    detected: '2026-10-20'
+  detected_by: sweep-data-marketplaces.py
+  detected: '2026-10-20'
+  publisher_verified:
+  - Deployed on AWS
